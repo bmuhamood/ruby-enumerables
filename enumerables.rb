@@ -8,7 +8,7 @@ module Enumerable
 
   def my_each_with_index
     schools = ["Lugoba High", "Makerere Modern" "Kampala High", "Kisubu high"]
-    schools.my_each_with_index { |school, index| puts if school.index? even}
+    schools.my_each_with_index { |school, index| puts if school.index? [1]}
   end
 
   def my_select
