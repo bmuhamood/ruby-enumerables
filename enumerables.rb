@@ -1,63 +1,82 @@
 module Enumerable
 
-  def my_each
+  def my_each(array)
     raise LocalJumpError if block_given? == false
 
-    schools = ["Lugoba High", "Makerere Modern" "Kampala High", "Kisubu high"]
-    schools.my_each { | school| puts "My School life  " + school }
-    puts school
-  end
+      i=0 
+      while i < array.length 
+        yield(array[i])
+        i += 1 
+      end 
+      array 
+    end
 
   def my_each_with_index
     raise LocalJumpError if block_given? == false
-
-    schools = ["Lugoba High", "Makerere Modern" "Kampala High", "Kisubu high"]
-    schools.my_each_with_index { | school, index| puts if school.index? [1] }
-  end
+ 
+    a = ["abc", "nil", "dog"]
+    b = ["hello", "hi", "dog"]
+    puts "each_index : #{b.each_index{|x| x = 2}}\n\n"
 
   def my_select
     raise LocalJumpError if block_given? == false
 
-    schools = ["Lugoba High", "Makerere Modern" "Kampala High", "Kisubu high"]
-    schools.select { | school| school != "Kisubi high" } 
-    (1..10).find_all { |i|  i % 3 == 0 }
-    [1,2,3,4,5].select { |num|  num.even?  }
+    num_array = [1, 2, 3, 4, 5]
+
+    def my_select(array)
+      i = 0
+      select = []
+      while i < array.length
+        if yield(array[i])
+          select << array[i]
+        end
+        i+=1
+      end
+      select
+    end
+    
+    my_select(num_array) { | num | num.even? }
 end
 
   def my_all
     raise LocalJumpError if block_given? == false
-
-    pets = %w[dog bear cat].all? { |word| word.length >= 3 }
-    pets = %w[dog bear cat].all? { |word| word.length >= 4 }
-    pets = %w[dog bear cat].all?(/t/)                       
-    [1, 2i, 3.14].all?(Numeric)
-    [nil, true, 99].all?                             
-    [].all?
+    
+    class my_arr
+      def initialize(array)
+        @array = array
+      end
+    def my_all?
+      @array.each do |element|
+        return true unless block_given?
+        true_false = yield(element)
+        return false unless true_false
+      end
+      return true 
+    end
   end
+
+  a = my_arr.new([1,2,3])
+  p a.my_all? { |x| x > 0 }
+  p a.my_all? { |x| x > 1 }
 
   def any
     raise LocalJumpError if block_given? == false
 
-    animals = %w[dog bear cat].any? { |word| word.length >= 3 }
-    animals = %w[dog bear cat].any? { |word| word.length >= 4 }
-    animals = %w[dog bear cat].any?(/d/)
-    [nil, true, 99].any?(Integer)
-    [nil, true, 99].any?                            
-    [].any? 
+    mynum1 = [10, 19, 18]    
+    myres1 = mynum1.any? { |num| num>13}
+    puts res1
+    res2 = mynum1.any? { |num| num>=20}
+    puts res2  
   end
 
-  def my_none
+  def my_none?
     raise LocalJumpError if block_given? == false
 
-    letters = %w[a b c d].none? { | letter| letter != t }
-    animals = %w{ant bear cat}.none? { |word| word.length == 5 }
-    animals =  %w{ant bear cat}.none? { |word| word.length >= 4 }
-    animals = %w{ant bear cat}.none?(/d/)
-    num = [1, 3.14, 42].none?(Float)                        
-    num = [].none?                                         
-    num = [nil].none?                                       
-    num = [nil, false].none?                                
-    num = [nil, false, true].none?                          
+    my_each do |item|
+      return false if block_given? && yield(item) || !block_given? && item
+    end
+      true
+    end                        
   end 
 
   def my_count
@@ -66,16 +85,8 @@ end
     ary = [1, 2, 4, 2]
     ary.count
     ary.count(2)
-    ary.count{ |x| x%2==0 }
+    ary.count { |x| x%2==0 }
 end
-
-  def my_map
-    raise LocalJumpError if block_given? == false
-
-    my_balance [600, 500, 200, 400]
-    my_balance.map { | balance| balance-400 }
-    puts balance
-  end
 
   def my_inject
     raise LocalJumpError if block_given? == false
@@ -86,14 +97,36 @@ end
   def multiply_els
     raise LocalJumpError if block_given? == false
 
-    my_arr = [2,4,5]
     my_arr.inject { | multiply, n| sum * n }
   end
 
   def my_map
     raise LocalJumpError if block_given? == false
 
-    burgers = {"Big Mac" => 300, "Whopper with cheese" => 450, "Wendy's Double with cheese" => 320}
-    burgers.map => [["Wendy's Double with cheese", 320], ["Big Mac", 300], ["Whopper with cheese", 450]]
+    a = [18, 22, 33, 3, 5, 6]
+    b = [1, 4, 1, 1, 88, 9]
+    c = [18, 22, 3, 3, 50, 6]
+    puts "map method : #{a.map {|num| num > 10 }}\n\n"
+    puts "map method : #{b.map {|x| x.odd? }}\n\n"
   end
+end
+
+def my_inject(sum=(sum_set = true; self[0]))
+  i = 0
+  if sum_set
+    while i < (self.length - 1)
+    sum = yield sum, self[i+1]
+    i += 1
+  end
+ sum
+else
+    while i < (self.length)
+  sum = yield sum, self[i]
+  i += 1
+    end
+sum
+end
+end
+
+
 end
