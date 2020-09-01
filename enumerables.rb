@@ -55,7 +55,7 @@ end
     animals = %w{ant bear cat}.none?(/d/)
     num = [1, 3.14, 42].none?(Float)                        
     num = [].none?                                         
-    [num = nil].none?                                       
+    num = [nil].none?                                       
     num = [nil, false].none?                                
     num = [nil, false, true].none?                          
   end 
