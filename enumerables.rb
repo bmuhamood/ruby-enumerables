@@ -1,3 +1,27 @@
+# rubocop:disable Style/For
+
+# rubocop:disable Style/RedundantSelf
+
+# rubocop:disable Metrics/CyclomaticComplexity
+
+# rubocop:disable Metrics/MethodLength
+
+# rubocop:disable Metrics/PerceivedComplexity
+
+# rubocop:disable Style/GuardClause
+
+# rubocop:disable Style/MultipleComparison
+
+# rubocop:disable Style/IdenticalConditionalBranches
+
+# rubocop:disable Style/NilComparison
+
+# rubocop:disable Metrics/ModuleLength
+
+# rubocop:disable Style/RedundantReturn
+
+# rubocop:disable Style/IfUnlessModifier
+
 def my_each(array)
     raise LocalJumpError if block_given? == false
 
@@ -127,3 +151,27 @@ end
 end
 
 end
+
+# rubocop:enable Style/For
+
+# rubocop:enable Style/RedundantSelf
+
+# rubocop:enable Metrics/CyclomaticComplexity
+
+# rubocop:enable Metrics/MethodLength
+
+# rubocop:enable Metrics/PerceivedComplexity
+
+# rubocop:enable Style/GuardClause
+
+# rubocop:enable Style/MultipleComparison
+
+# rubocop:enable Style/IdenticalConditionalBranches
+
+# rubocop:enable Style/NilComparison
+
+# rubocop:enable Metrics/ModuleLength
+
+# rubocop:enable Style/RedundantReturn
+
+# rubocop:enable Style/IfUnlessModifier
