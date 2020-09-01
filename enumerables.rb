@@ -20,15 +20,16 @@ module Enumerable
 
     schools = ["Lugoba High", "Makerere Modern" "Kampala High", "Kisubu high"]
     schools.select { | school| school != "Kisubi high" } 
-    puts school
+    (1..10).find_all { |i|  i % 3 == 0 }
+    [1,2,3,4,5].select { |num|  num.even?  }
 end
 
   def my_all
     raise LocalJumpError if block_given? == false
 
-    pets = %w[ant bear cat].all? { |word| word.length >= 3 }
-    pets = %w[ant bear cat].all? { |word| word.length >= 4 }
-    pets = %w[ant bear cat].all?(/t/)                       
+    pets = %w[dog bear cat].all? { |word| word.length >= 3 }
+    pets = %w[dog bear cat].all? { |word| word.length >= 4 }
+    pets = %w[dog bear cat].all?(/t/)                       
     [1, 2i, 3.14].all?(Numeric)
     [nil, true, 99].all?                             
     [].all?
@@ -37,9 +38,9 @@ end
   def any
     raise LocalJumpError if block_given? == false
 
-    animals = %w[ant bear cat].any? { |word| word.length >= 3 }
-    animals = %w[ant bear cat].any? { |word| word.length >= 4 }
-    animals = %w[ant bear cat].any?(/d/)
+    animals = %w[dog bear cat].any? { |word| word.length >= 3 }
+    animals = %w[dog bear cat].any? { |word| word.length >= 4 }
+    animals = %w[dog bear cat].any?(/d/)
     [nil, true, 99].any?(Integer)
     [nil, true, 99].any?                            
     [].any? 
@@ -49,6 +50,14 @@ end
     raise LocalJumpError if block_given? == false
 
     letters = %w[a b c d].none? { | letter| letter != t }
+    animals = %w{ant bear cat}.none? { |word| word.length == 5 }
+    animals =  %w{ant bear cat}.none? { |word| word.length >= 4 }
+    animals = %w{ant bear cat}.none?(/d/)
+    num = [1, 3.14, 42].none?(Float)                        
+    num = [].none?                                         
+    [num = nil].none?                                       
+    num = [nil, false].none?                                
+    num = [nil, false, true].none?                          
   end 
 
   def my_count
@@ -85,9 +94,6 @@ end
     raise LocalJumpError if block_given? == false
 
     burgers = {"Big Mac" => 300, "Whopper with cheese" => 450, "Wendy's Double with cheese" => 320}
-
-    burgers.map
-    => [["Wendy's Double with cheese", 320], ["Big Mac", 300], ["Whopper with cheese", 450]]
+    burgers.map => [["Wendy's Double with cheese", 320], ["Big Mac", 300], ["Whopper with cheese", 450]]
   end
 end
-
