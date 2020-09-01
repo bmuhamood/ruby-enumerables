@@ -1,6 +1,4 @@
-module Enumerable
-
-  def my_each(array)
+def my_each(array)
     raise LocalJumpError if block_given? == false
 
       i=0 
@@ -127,6 +125,5 @@ else
 sum
 end
 end
-
 
 end
