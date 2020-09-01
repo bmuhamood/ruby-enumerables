@@ -109,9 +109,9 @@ end
   end
 end
 
-def my_inject(sum=(sum_set = true; self[0]))
+def my_inject(sum=(set_var = true; self[0]))
   i = 0
-  if sum_set
+  if set_var
     while i < (self.length - 1)
     sum = yield sum, self[i+1]
     i += 1
