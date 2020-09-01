@@ -63,10 +63,6 @@ end
   def my_all
     raise LocalJumpError if block_given? == false
     
-    class my_arr
-      def initialize(array)
-        @array = array
-      end
     def my_all?
       @array.each do |element|
         return true unless block_given?
@@ -75,7 +71,6 @@ end
       end
       return true 
     end
-  end
 
   a = my_arr.new([1,2,3])
   p a.my_all? { |x| x > 0 }
@@ -148,8 +143,6 @@ else
     end
 sum
 end
-end
-
 end
 
 # rubocop:enable Style/For
