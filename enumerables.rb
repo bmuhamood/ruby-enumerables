@@ -87,7 +87,7 @@ end
     raise LocalJumpError if block_given? == false
 
     my_arr = [2,4,5]
-    my_arr.inject { | multpy, n| sum * n }
+    my_arr.inject { | multiply, n| sum * n }
   end
 
   def my_map
