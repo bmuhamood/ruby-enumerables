@@ -1,5 +1,4 @@
 module Enumerable
-  raise LocalJumpError if block_given? == false
 
   def my_each
     schools = ["Lugoba High", "Makerere Modern" "Kampala High", "Kisubu high"]
