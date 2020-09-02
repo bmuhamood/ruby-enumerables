@@ -49,31 +49,33 @@ module Enumerable
   	i = 0
   	while i < self.length
   	  (yield self[i]) == true ? a = true : false
-  	    if a == true
-  	  	  return true
-  	    end
-  	  i += 1
-  	end
-  	  false
-    else 
-  	  true
+  	  if a == true
+  	  	return true
+      end
+
+  	i += 1
+    end
+  	false
+    else
+    true
     end
   end
 
   def my_none?
     if block_given? == true
 
-    i = 0
+      i = 0
     while i < self.length
       (yield self[i]) == true ? a = true : false
         if a == true
           return false
         end
+
       i += 1
     end
-      true
-    else 
-      if self.all? {|x| x == false}
+    true
+    else
+      elsif self.all? {|x| x == false }
         true
       else
       false
@@ -84,7 +86,7 @@ module Enumerable
   def my_count
     result = 0
     if block_given? && parameter == false
-    for item in self
+      for item in self
       result += 1 if yield(item) == true
     end
       return result
@@ -118,19 +120,20 @@ module Enumerable
     return n
   end
 
-  def my_inject(sum=(set_var = true; self[0]))
+  def my_inject(sum = (set_var = true 
+    self[0]))
     i = 0
     if set_var
-      while i < self.length - 1
-      sum = yield sum, self[i+1]
+    while i < self.length - 1
+      sum = yield sum, self[i + 1]
       i += 1
     end
-  sum
-  else
-  while i < (self.length)
-  sum = yield sum, self[i]
-  i += 1
-  end
+    sum
+    else
+    while i < (self.length)
+    sum = yield sum, self[i]
+    i += 1
+    end
     end
     sum
   end
@@ -138,5 +141,5 @@ module Enumerable
 end
 
 def multiple_els(array)
-  array.my_inject { |sum, x | sum * x }
+  array.my_inject { |sum, x| sum * x }
 end
