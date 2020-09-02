@@ -1,5 +1,4 @@
 module Enumerable
-
 def my_each(array)
   return to_enum unless block_given?
 
@@ -42,6 +41,49 @@ def my_all?(parameter = false)
     end
     return true
   end
+
+def my_any?
+  if block_given? == true
+  	i = 0
+  	while i < self.length
+  	  (yield self[i]) == true ? a = true : false
+  	    if a == true
+  	  	  return true
+  	    end
+  	  i += 1
+  	    end
+  	  false
+  else 
+  	true
+  end
+end
+
+def my_none?
+  if block_given? == true
+  	i = 0
+  	while i < self.length
+  	  (yield self[i]) == true ? a = true : false
+  	    if a == true
+  	  	  return false
+  	    end
+  	  i += 1
+  	  end
+  	  true
+  else 
+  	if self.all? {|x| x == false}
+  	  true
+  	  else
+  	false
+  	end
+  end
+end
+
+
+
+
+
+
+
 
 def any
   return to_enum unless block_given?
