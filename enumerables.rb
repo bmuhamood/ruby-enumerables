@@ -128,10 +128,9 @@ module Enumerable
     sum = yield sum, self[i]
     i += 1
       end
-  sum 
+    sum 
+    end
   end
-  end
-
 end
 
 def multiple_els(array)
