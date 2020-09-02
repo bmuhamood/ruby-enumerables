@@ -94,6 +94,7 @@ def my_map
     c = [18, 22, 3, 3, 50, 6]
     puts "map method : #{a.map {|num| num > 10 }}\n\n"
     puts "map method : #{b.map {|x| x.odd? }}\n\n"
+  end
 end
 
 def my_inject(sum=(set_var = true; self[0]))
