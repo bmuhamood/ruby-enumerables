@@ -8,7 +8,7 @@ module Enumerable
       yield (n[i])
       i += 1
     end
-    self
+    num
   end
 
   def my_each_with_index
@@ -20,14 +20,14 @@ module Enumerable
       yield(n[i], i)
       i += 1
     end
-    self
+    num
   end
 
   def my_select
     n = []
     return to_enum(:my_select) unless block_given?
 
-    self.my_each do |element|
+    num.my_each do |element|
       result = yield(element)
       n.push(element) if result
     end
@@ -37,7 +37,7 @@ module Enumerable
   def my_all?
     if block_given?
 
-      for item in self
+      for item in num
         return false unless yield(item)
       end
       return true
@@ -47,13 +47,13 @@ module Enumerable
     if block_given? == true
 
     i = 0
-    while i < self.length
-  	  (yield self[i]) == true ? a = true : false
+    while i < num.length
+  	  (yield num[i]) == true ? a = true : false
   	if a == true
   	  return true
     end
 
-  	i += 1
+   i += 1
     end
   false
     else
@@ -65,8 +65,8 @@ module Enumerable
     if block_given? == true
 
     i = 0
-    while i < self.length
-      (yield self[i]) == true ? a = true : false
+    while i < length
+      (yield [i]) == true ? a = true : false
       if a == true
           return false
       end
@@ -76,7 +76,7 @@ module Enumerable
     true
     else
 
-      if self.all? { |x | x == false }
+      if num.all? { |x | x == false }
         true
       else
         false
@@ -87,16 +87,16 @@ module Enumerable
   def my_count
     result = 0
     if block_given? && parameter == false
-      for item in self
+      for item in num
         result += 1 if yield(item) == true
     end
       return result
     elsif !block_given? && parameter == false
-      return self.length
+      return num.length
     end
 
     if parameter
-      for item in self
+      for item in num
         result += 1 if item == parameter
       end
       return result
@@ -107,7 +107,7 @@ module Enumerable
     n = []
     return to_enum(:my_map) unless block_given?
 
-    for item in self
+    for item in num
       if block_given? && my_proc == false
         n.push yield(item)
       elsif block_given? && my_proc.class == Proc
@@ -122,19 +122,19 @@ module Enumerable
   end
 
   def my_inject(sum = (set_var = true
-  self[0]))
+  num[0]))
     i = 0
     if set_var
-      while i < self.length - 1
-      sum = yield sum, self[i + 1]
+      while i < num.length - 1
+        sum = yield sum, num[i + 1]
       i += 1
-    end
+      end
     sum
     else
-      while i < self.length
-      sum = yield sum, self[i]
+      while i < num.length
+          sum = yield sum, num[i]
     i += 1
-    end
+      end
     end
     sum
   end
