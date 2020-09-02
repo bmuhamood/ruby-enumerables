@@ -24,34 +24,24 @@ def my_each_with_index
   self
 end
 
-def my_select(array)
-  return to_enum unless block_given?
+def my_select
+  new_arr = []
+  return to_enum(:my_select) unless block_given?
 
-  num_array = [1, 2, 3, 4, 5]
-    i = 0
-    select = []
-    while i < array.length
-      if yield(array[i])
-        select << array[i]
-      end
-      i += 1
-    end
-      select
+  self.my_each do |element|
+    result = yield(element)
+    new_arr.push(element) if result
+  end
+  new_arr
 end
 
-    my_select(num_array) { | num | num.even? }
-
-def my_all
-  return to_enum unless block_given?
-    
-  def my_all?
-    @array.each do |element|
-      return true unless block_given?
-        true_false = yield(element)
-      return false unless true_false
+def my_all?(parameter = false)
+  if block_given?
+    for item in self
+      return false unless yield(item)
     end
-      return true 
-end
+    return true
+  end
 
 def any
   return to_enum unless block_given?
