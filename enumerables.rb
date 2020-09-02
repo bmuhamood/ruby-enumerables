@@ -78,30 +78,66 @@ def my_none?
   end
 end
 
-def my_count
-  return to_enum unless block_given?
-
-    ary = [1, 2, 4, 2]
-    ary.count
-    ary.count(2)
-    ary.count { |x| x%2==0 }
-end
-
-def my_inject
-  return to_enum unless block_given?
-
-  (5..10).inject { | sum, n| sum + n }
+def my_count(parameter = false)
+  result = 0
+  if block_given? && parameter == false
+    for item in self
+      result += 1 if yield(item) == true
+    end
+    return result
+  elsif !block_given? && parameter == false
+    return self.length
   end
 
-def my_map
-  return to_enum unless block_given?
-
-    a = [18, 22, 33, 3, 5, 6]
-    b = [1, 4, 1, 1, 88, 9]
-    puts "map method : #{a.map {|num| num > 10 }}"
-    puts "map method : #{b.map {|x| x.odd? }}"
+  if parameter
+    for item in self
+      result += 1 if item == parameter
+    end
+    return result
   end
 end
+
+def my_map(my_proc = false)
+  new_arr = []
+  return to_enum(:my_map) unless block_given?
+
+  for item in self
+    if block_given? && my_proc == false
+      new_arr.push yield(item)
+    elsif block_given? && my_proc.class == Proc
+      new_arr.push my_proc.call(item)
+    elsif my_proc && my_proc.class == Symbol
+      new_arr.push item.my_proc
+    elsif my_proc
+      new_arr.push my_proc.call(item)
+    end
+  end
+  return new_arr
+end
+# def my_count
+#   return to_enum unless block_given?
+
+#     ary = [1, 2, 4, 2]
+#     ary.count
+#     ary.count(2)
+#     ary.count { |x| x%2==0 }
+# end
+
+# def my_inject
+#   return to_enum unless block_given?
+
+#   (5..10).inject { | sum, n| sum + n }
+#   end
+
+# def my_map
+#   return to_enum unless block_given?
+
+#     a = [18, 22, 33, 3, 5, 6]
+#     b = [1, 4, 1, 1, 88, 9]
+#     puts "map method : #{a.map {|num| num > 10 }}"
+#     puts "map method : #{b.map {|x| x.odd? }}"
+#   end
+# end
 
 def my_inject(sum=(set_var = true; self[0]))
   i = 0
