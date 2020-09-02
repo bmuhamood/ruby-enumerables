@@ -1,19 +1,19 @@
 def my_each(array)
-    raise LocalJumpError if block_given? == false
+  raise LocalJumpError if block_given? == false
 
-      i=0 
-      while i < array.length 
+      i = 0
+      while i < array.length
         yield(array[i])
-        i += 1 
-      end 
-      array 
-    end
+        i += 1
+      end
+      array
+end
 
   def my_each_with_index
     raise LocalJumpError if block_given? == false
  
-    a = ["abc", "nil", "dog"]
-    b = ["hello", "hi", "dog"]
+    a = %w[abc, nil, dog]
+    b = %w[hello, hi, dog]
     puts "each_index : #{b.each_index{|x| x = 2}}\n\n"
 
   def my_select
