@@ -1,12 +1,12 @@
 def my_each(array)
   raise LocalJumpError if block_given? == false
 
-      i = 0
-      while i < array.length
-        yield(array[i])
-        i += 1
-      end
-      array
+  i = 0
+  while i < array.length
+    yield(array[i])
+    i += 1
+  end
+    array
 end
 
   def my_each_with_index
