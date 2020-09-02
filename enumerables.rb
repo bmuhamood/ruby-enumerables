@@ -114,30 +114,6 @@ def my_map(my_proc = false)
   end
   return new_arr
 end
-# def my_count
-#   return to_enum unless block_given?
-
-#     ary = [1, 2, 4, 2]
-#     ary.count
-#     ary.count(2)
-#     ary.count { |x| x%2==0 }
-# end
-
-# def my_inject
-#   return to_enum unless block_given?
-
-#   (5..10).inject { | sum, n| sum + n }
-#   end
-
-# def my_map
-#   return to_enum unless block_given?
-
-#     a = [18, 22, 33, 3, 5, 6]
-#     b = [1, 4, 1, 1, 88, 9]
-#     puts "map method : #{a.map {|num| num > 10 }}"
-#     puts "map method : #{b.map {|x| x.odd? }}"
-#   end
-# end
 
 def my_inject(sum=(set_var = true; self[0]))
   i = 0
