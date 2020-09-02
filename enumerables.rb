@@ -36,6 +36,7 @@ module Enumerable
 
   def my_all?(parameter = false)
     if block_given?
+
       for item in self
         return false unless yield(item)
       end
@@ -44,6 +45,7 @@ module Enumerable
 
   def my_any?
     if block_given? == true
+
   	  i = 0
   	  while i < self.length
   	    (yield self[i]) == true ? a = true : false
@@ -60,6 +62,7 @@ module Enumerable
 
   def my_none?
     if block_given? == true
+      
       i = 0
       while i < self.length
         (yield self[i]) == true ? a = true : false
