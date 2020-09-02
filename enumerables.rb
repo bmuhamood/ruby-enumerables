@@ -121,22 +121,22 @@ module Enumerable
   def my_inject(sum=(set_var = true; self[0]))
     i = 0
     if set_var
-      while i < (self.length - 1)
+      while i < self.length - 1
       sum = yield sum, self[i+1]
       i += 1
     end
   sum
   else
-      while i < (self.length)
-    sum = yield sum, self[i]
-    i += 1
-      end
-    sum 
+  while i < (self.length)
+  sum = yield sum, self[i]
+  i += 1
+  end
     end
+    sum
   end
   end
-end 
+end
 
 def multiple_els(array)
-  array.my_inject {|sum,x| sum * x}
+  array.my_inject { |sum, x | sum * x }
 end
