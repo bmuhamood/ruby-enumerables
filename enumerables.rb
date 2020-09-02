@@ -75,6 +75,8 @@ module Enumerable
     end
     true
     else
+    end
+    
       elsif self.all? {|x| x == false }
         true
       else
