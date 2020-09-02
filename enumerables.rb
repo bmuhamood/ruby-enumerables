@@ -46,40 +46,40 @@ module Enumerable
   def my_any
     if block_given? == true
 
-  	i = 0
-  	while i < self.length
+    i = 0
+    while i < self.length
   	  (yield self[i]) == true ? a = true : false
-  	  if a == true
-  	  	return true
-      end
+  	if a == true
+  	  return true
+    end
 
   	i += 1
     end
-  	false
+  false
     else
-    true
+      true
     end
   end
 
   def my_none?
     if block_given? == true
 
-      i = 0
+    i = 0
     while i < self.length
       (yield self[i]) == true ? a = true : false
-        if a == true
+      if a == true
           return false
-        end
+      end
 
       i += 1
     end
     true
     else
 
-      if self.all? {|x| x == false }
+      if self.all? { |x | x == false }
         true
       else
-      false
+        false
       end
     end
   end
@@ -88,7 +88,7 @@ module Enumerable
     result = 0
     if block_given? && parameter == false
       for item in self
-      result += 1 if yield(item) == true
+        result += 1 if yield(item) == true
     end
       return result
     elsif !block_given? && parameter == false
@@ -122,17 +122,17 @@ module Enumerable
   end
 
   def my_inject(sum = (set_var = true
-    self[0]))
+  self[0]))
     i = 0
     if set_var
-    while i < self.length - 1
+      while i < self.length - 1
       sum = yield sum, self[i + 1]
       i += 1
     end
     sum
     else
-    while i < (self.length)
-    sum = yield sum, self[i]
+      while i < self.length
+      sum = yield sum, self[i]
     i += 1
     end
     end
