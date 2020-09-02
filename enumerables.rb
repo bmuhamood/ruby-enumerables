@@ -12,7 +12,6 @@ end
 def my_each_with_index
   return to_enum unless block_given?
  
-  a = %w[abc, nil, dog]
   b = %w[hello, hi, dog]
   puts "each_index : #{b.each_index{|x| x = 2}}\n\n"
 end
