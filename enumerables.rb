@@ -46,15 +46,15 @@ module Enumerable
   def my_any
     if block_given? == true
 
-  	  i = 0
-  	  while i < self.length
-  	    (yield self[i]) == true ? a = true : false
-  	      if a == true
-  	  	    return true
-  	      end
-  	    i += 1
-  	  end
-  	    false
+  	i = 0
+  	while i < self.length
+  	  (yield self[i]) == true ? a = true : false
+  	    if a == true
+  	  	  return true
+  	    end
+  	  i += 1
+  	end
+  	  false
     else 
   	  true
     end
@@ -63,15 +63,15 @@ module Enumerable
   def my_none?
     if block_given? == true
 
-      i = 0
-      while i < self.length
-        (yield self[i]) == true ? a = true : false
-          if a == true
-            return false
-          end
-        i += 1
-      end
-        true
+    i = 0
+    while i < self.length
+      (yield self[i]) == true ? a = true : false
+        if a == true
+          return false
+        end
+      i += 1
+    end
+      true
     else 
       if self.all? {|x| x == false}
         true
@@ -84,9 +84,9 @@ module Enumerable
   def my_count
     result = 0
     if block_given? && parameter == false
-      for item in self
-        result += 1 if yield(item) == true
-      end
+    for item in self
+      result += 1 if yield(item) == true
+    end
       return result
     elsif !block_given? && parameter == false
       return self.length
