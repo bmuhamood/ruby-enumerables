@@ -98,6 +98,8 @@ def my_map
 end
 
 def my_inject(sum=(set_var = true; self[0]))
+  return to_enum unless block_given?
+  
   i = 0
   if set_var
     while i < (self.length - 1 )
