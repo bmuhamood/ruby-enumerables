@@ -24,14 +24,14 @@ module Enumerable
   end
 
   def my_select
-    new_arr = []
+    n = []
     return to_enum(:my_select) unless block_given?
 
     self.my_each do |element|
       result = yield(element)
-      new_arr.push(element) if result
+      n.push(element) if result
     end
-    new_arr
+    n
   end
 
   def my_all?(parameter = false)
@@ -98,21 +98,21 @@ module Enumerable
   end
 
   def my_map(my_proc = false)
-    new_arr = []
+    n = []
     return to_enum(:my_map) unless block_given?
 
     for item in self
       if block_given? && my_proc == false
-        new_arr.push yield(item)
+        n.push yield(item)
       elsif block_given? && my_proc.class == Proc
-        new_arr.push my_proc.call(item)
+        n.push my_proc.call(item)
       elsif my_proc && my_proc.class == Symbol
-        new_arr.push item.my_proc
+        n.push item.my_proc
       elsif my_proc
-        new_arr.push my_proc.call(item)
+        n.push my_proc.call(item)
       end
     end
-    return new_arr
+    return n
   end
 
   def my_inject(sum=(set_var = true; self[0]))
