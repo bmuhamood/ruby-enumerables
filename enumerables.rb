@@ -91,8 +91,8 @@ def my_map
 
     a = [18, 22, 33, 3, 5, 6]
     b = [1, 4, 1, 1, 88, 9]
-    puts "map method : #{a.map {|num| num > 10 }}\n\n"
-    puts "map method : #{b.map {|x| x.odd? }}\n\n"
+    puts "map method : #{a.map {|num| num > 10 }}"
+    puts "map method : #{b.map {|x| x.odd? }}"
   end
 end
 
