@@ -1,19 +1,27 @@
+module Enumerable
+
 def my_each(array)
   return to_enum unless block_given?
 
   i = 0
-  while i < array.length
-    yield(array[i])
+  n = to_a
+  while i <= arr.length - 1
+    yield (n[i])
     i += 1
   end
-    array
+  self
 end
 
 def my_each_with_index
   return to_enum unless block_given?
- 
-  b = %w[hello, hi, dog]
-  puts "each_index : #{b.each_index{|x| x = 2}}\n\n"
+
+  i = 0
+  n = to_a
+  while i <= n.length - 1
+    yield(n[i], i)
+    i += 1
+  end
+  self
 end
 
 def my_select(array)
@@ -80,12 +88,6 @@ def my_inject
   (5..10).inject { | sum, n| sum + n }
   end
 
-def multiply_els
-  return to_enum unless block_given?
-
-  my_arr.inject { | multiply, n| sum * n }
-  end
-
 def my_map
   return to_enum unless block_given?
 
@@ -97,12 +99,10 @@ def my_map
 end
 
 def my_inject(sum=(set_var = true; self[0]))
-  return to_enum unless block_given?
-
   i = 0
   if set_var
-    while i < (self.length - 1 )
-    sum = yield sum, self[ i + 1 ]
+    while i < (self.length - 1)
+    sum = yield sum, self[i+1]
     i += 1
   end
  sum
@@ -111,6 +111,12 @@ else
   sum = yield sum, self[i]
   i += 1
     end
-sum
+sum 
 end
+end
+
+end
+
+def multiple_els(array)
+array.my_inject {|sum,x| sum * x}
 end
