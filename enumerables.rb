@@ -91,7 +91,6 @@ def my_map
 
     a = [18, 22, 33, 3, 5, 6]
     b = [1, 4, 1, 1, 88, 9]
-    c = [18, 22, 3, 3, 50, 6]
     puts "map method : #{a.map {|num| num > 10 }}\n\n"
     puts "map method : #{b.map {|x| x.odd? }}\n\n"
   end
@@ -99,7 +98,7 @@ end
 
 def my_inject(sum=(set_var = true; self[0]))
   return to_enum unless block_given?
-  
+
   i = 0
   if set_var
     while i < (self.length - 1 )
