@@ -62,7 +62,7 @@ module Enumerable
 
   def my_none?
     if block_given? == true
-      
+
       i = 0
       while i < self.length
         (yield self[i]) == true ? a = true : false
@@ -134,8 +134,8 @@ module Enumerable
     sum 
     end
   end
+end 
 
 def multiple_els(array)
   array.my_inject {|sum,x| sum * x}
-end
 end
