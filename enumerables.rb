@@ -99,7 +99,6 @@ module Enumerable
       for item in num
         result += 1 if item == parameter
       end
-      return result
     end
   end
 
@@ -118,21 +117,19 @@ module Enumerable
         n.push my_proc.call(item)
       end
     end
-    return n
   end
 
-  def my_inject(sum = (set_var = true
-  num[0]))
+  def my_inject(sum = (set_var = true num[0]))
     i = 0
     if set_var
       while i < num.length - 1
         sum = yield sum, num[i + 1]
-      i += 1
+    i += 1
       end
-    sum
+  sum
     else
       while i < num.length
-          sum = yield sum, num[i]
+        sum = yield sum, num[i]
     i += 1
       end
     end
