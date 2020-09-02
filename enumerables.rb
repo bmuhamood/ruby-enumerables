@@ -41,9 +41,9 @@ module Enumerable
         return false unless yield(item)
       end
       return true
-  end
+    end
 
-  def my_any?
+  def my_any
     if block_given? == true
 
   	  i = 0
@@ -53,7 +53,7 @@ module Enumerable
   	  	    return true
   	      end
   	    i += 1
-  	      end
+  	  end
   	    false
     else 
   	  true
@@ -70,12 +70,12 @@ module Enumerable
             return false
           end
         i += 1
-        end
+      end
         true
     else 
       if self.all? {|x| x == false}
         true
-        else
+      else
       false
       end
     end
