@@ -134,6 +134,7 @@ module Enumerable
     sum 
     end
   end
+  end
 end 
 
 def multiple_els(array)
