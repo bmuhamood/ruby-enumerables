@@ -1,5 +1,5 @@
 def my_each(array)
-  raise LocalJumpError if block_given? == false
+  return to_enum unless block_given?
 
   i = 0
   while i < array.length
@@ -9,35 +9,33 @@ def my_each(array)
     array
 end
 
-  def my_each_with_index
-    raise LocalJumpError if block_given? == false
+def my_each_with_index
+  return to_enum unless block_given?
  
-    a = %w[abc, nil, dog]
-    b = %w[hello, hi, dog]
-    puts "each_index : #{b.each_index{|x| x = 2}}\n\n"
-
-  def my_select
-    raise LocalJumpError if block_given? == false
-
-    num_array = [1, 2, 3, 4, 5]
-
-    def my_select(array)
-      i = 0
-      select = []
-      while i < array.length
-        if yield(array[i])
-          select << array[i]
-        end
-        i+=1
-      end
-      select
-    end
-    
-    my_select(num_array) { | num | num.even? }
+  a = %w[abc, nil, dog]
+  b = %w[hello, hi, dog]
+  puts "each_index : #{b.each_index{|x| x = 2}}\n\n"
 end
 
+def my_select(array)
+  return to_enum unless block_given?
+
+  num_array = [1, 2, 3, 4, 5]
+    i = 0
+    select = []
+    while i < array.length
+      if yield(array[i])
+        select << array[i]
+      end
+      i += 1
+    end
+      select
+end
+
+    my_select(num_array) { | num | num.even? }
+
   def my_all
-    raise LocalJumpError if block_given? == false
+    return to_enum unless block_given?
     
     def my_all?
       @array.each do |element|
@@ -53,7 +51,7 @@ end
   p a.my_all? { |x| x > 1 }
 
   def any
-    raise LocalJumpError if block_given? == false
+    return to_enum unless block_given?
 
     mynum1 = [10, 19, 18]    
     myres1 = mynum1.any? { |num| num>13}
@@ -63,7 +61,7 @@ end
   end
 
   def my_none?
-    raise LocalJumpError if block_given? == false
+    return to_enum unless block_given?
 
     my_each do |item|
       return false if block_given? && yield(item) || !block_given? && item
@@ -73,7 +71,7 @@ end
   end 
 
   def my_count
-    raise LocalJumpError if block_given? == false
+    return to_enum unless block_given?
 
     ary = [1, 2, 4, 2]
     ary.count
@@ -82,19 +80,19 @@ end
 end
 
   def my_inject
-    raise LocalJumpError if block_given? == false
+    return to_enum unless block_given?
 
     (5..10).inject { | sum, n| sum + n }
   end
 
   def multiply_els
-    raise LocalJumpError if block_given? == false
+    return to_enum unless block_given?
 
     my_arr.inject { | multiply, n| sum * n }
   end
 
   def my_map
-    raise LocalJumpError if block_given? == false
+    return to_enum unless block_given?
 
     a = [18, 22, 33, 3, 5, 6]
     b = [1, 4, 1, 1, 88, 9]
