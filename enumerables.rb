@@ -136,3 +136,4 @@ end
 def multiple_els(array)
   array.my_inject {|sum,x| sum * x}
 end
+end
