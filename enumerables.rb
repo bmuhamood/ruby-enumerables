@@ -1,5 +1,5 @@
 module Enumerable
-  def my_each()
+  def my_each
     return to_enum unless block_given?
 
     i = 0
@@ -34,7 +34,7 @@ module Enumerable
     n
   end
 
-  def my_all?(parameter = false)
+  def my_all?
     if block_given?
 
       for item in self
@@ -81,7 +81,7 @@ module Enumerable
     end
   end
 
-  def my_count(parameter = false)
+  def my_count
     result = 0
     if block_given? && parameter == false
       for item in self
