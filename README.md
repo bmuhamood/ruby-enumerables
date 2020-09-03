@@ -20,7 +20,7 @@ To run the test type rspec --format documentation in your terminal after instal 
 
 #  Clone
 
-Clone the repository from https://github.com/atenaiis/enumerables
+Clone the repository from https://github.com/bmuhamood/ruby-enumerables/tree/enum
 
 #  Run
 
