@@ -1,4 +1,7 @@
-# rubocop: disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/PerceivedComplexity
+# rubocop:disable Metrics/AbcSize
+# rubocop:disable Metrics/MethodLength
 def my_each
   return to_enum unless block_given?
 
@@ -294,16 +297,7 @@ def my_select
   new_array
 end
 
-public 'my_each'
-public 'my_each_with_index'
-public 'my_all?'
-public 'my_any?'
-public 'my_none?'
-public 'my_count'
-public 'my_map'
-public 'my_inject'
-public 'my_inject'
-public 'multiply_els'
-public 'my_select'
-
-# rubocop: enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/AbcSize
+# rubocop:enable Metrics/MethodLength
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/PerceivedComplexity
