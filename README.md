@@ -24,7 +24,7 @@ Clone the repository from https://github.com/bmuhamood/ruby-enumerables/tree/enu
 
 #  Run
 
--Run code with ruby main.rbin your local terminal
+Run code with ruby enumerables.rb in your local terminal
 
 ## Author(s)
 
