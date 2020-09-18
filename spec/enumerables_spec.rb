@@ -6,7 +6,7 @@
 # rubocop:disable Metrics/MethodLength
 # rubocop:disable Style/SymbolProc
 
-require_relative '../main'
+require_relative '../lib/enumerables'
 
 # TEST
 
