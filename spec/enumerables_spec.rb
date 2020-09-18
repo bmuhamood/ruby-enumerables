@@ -1,4 +1,4 @@
-# ./spec/methods_spec.rb
+# ./spec/enumerables_spec.rb
 
 # rubocop:disable Metrics/CyclomaticComplexity
 # rubocop:disable Metrics/PerceivedComplexity
@@ -17,14 +17,14 @@ describe '#my_each' do
   end
   it 'return array' do
     arr = [1, 2, 3, 4]
-    expect(arr.my_each { |x| x }).to eql(arr)
+    expect(arr.my_each { |x| x }).to eql(Enumerator)
   end
 end
 
 describe '#my_each_with_index' do
   it 'return enumerator if block is not given' do
     arr = [1, 2, 3, 4]
-    expect(arr.my_each_with_index.class).to eql(Enumerator)
+    expect(arr.my_each_with_index.class).to eql(to_enum)
   end
   it 'return array when a block is given ' do
     arr = [11, 22, 31, 224, 44]
