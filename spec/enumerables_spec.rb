@@ -1,4 +1,4 @@
-# rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
+# frozen_string_literal: true
 
 require_relative '../lib/enumerables'
 
@@ -130,7 +130,7 @@ describe '#my_count' do
   end
   it 'return the number of times that a element complete with the condition in the block' do
     arr = [1, 2, 4, 2]
-    expect(arr.my_count { |x| x.even? }).to eql(3)
+    expect(arr.my_count(&:even?)).to eql(3)
   end
 end
 
@@ -185,7 +185,7 @@ end
 describe '#my_select' do
   it 'return an array with the elments that complete with condition in the block' do
     arr = [1, 2, 3, 4, 5]
-    expect(arr.my_select { |num| num.even? }).to eql([2, 4])
+    expect(arr.my_select(&:even?)).to eql([2, 4])
   end
   it 'return enumerator if block is not given' do
     arr = [1, 2, 3, 4, 5]
@@ -205,4 +205,4 @@ public 'my_inject'
 public 'multiply_els'
 public 'my_select'
 
-# rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
+# rubocop:enable
