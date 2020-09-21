@@ -314,4 +314,3 @@ public 'my_select'
 # rubocop:enable Metrics/MethodLength
 # rubocop:enable Metrics/CyclomaticComplexity
 # rubocop:enable Metrics/PerceivedComplexity
-# rubocop: enable Style/FrozenStringLiteralComment
