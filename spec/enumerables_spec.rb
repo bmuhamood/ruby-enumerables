@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../lib/enumerables'
 describe '#my_each' do
   it 'return enumerator if block is not given' do
