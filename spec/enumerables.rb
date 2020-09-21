@@ -2,6 +2,8 @@
 # rubocop:disable Metrics/PerceivedComplexity
 # rubocop:disable Metrics/AbcSize
 # rubocop:disable Metrics/MethodLength
+
+# spec/enumerables_spec.rb
 def my_each
   return to_enum unless block_given?
 
