@@ -1,4 +1,9 @@
-# rubocop: disable Layout/LineLength
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/PerceivedComplexity
+# rubocop:disable Metrics/AbcSize
+# rubocop:disable Metrics/MethodLength
+# rubocop:disable Style/SymbolProc
+
 
 require_relative '../lib/enumerables'
 
@@ -207,4 +212,8 @@ public 'my_inject'
 public 'multiply_els'
 public 'my_select'
 
-# rubocop: enable Layout/LineLength
+# rubocop:enable Metrics/AbcSize
+# rubocop:enable Metrics/MethodLength
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/PerceivedComplexity
+# rubocop:enable Style/SymbolProc
