@@ -1,5 +1,7 @@
-# ./spec/enumerables_spec.rb
-# rubocop:disable Style/SymbolProc
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/PerceivedComplexity
+# rubocop:disable Metrics/AbcSize
+# rubocop:disable Metrics/MethodLength
 
 require_relative '../lib/enumerables'
 
@@ -209,3 +211,7 @@ public 'multiply_els'
 public 'my_select'
 
 # rubocop:enable Style/SymbolProc
+# rubocop:enable Metrics/AbcSize
+# rubocop:enable Metrics/MethodLength
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/PerceivedComplexity
