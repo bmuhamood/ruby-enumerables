@@ -1,3 +1,8 @@
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/PerceivedComplexity
+# rubocop:disable Metrics/AbcSize
+# rubocop:disable Metrics/MethodLength
+
 require_relative '../lib/enumerables'
 
 describe '#my_each' do
@@ -202,3 +207,8 @@ public 'my_inject'
 public 'my_inject'
 public 'multiply_els'
 public 'my_select'
+
+# rubocop:enable Metrics/AbcSize
+# rubocop:enable Metrics/MethodLength
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/PerceivedComplexity
