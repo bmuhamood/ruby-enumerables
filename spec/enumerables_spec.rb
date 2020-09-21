@@ -1,7 +1,5 @@
-# frozen_string_literal: true
-
-# ./spec/enumerables_spec.rb
-# rubocop:disable Style/SymbolProc
+# rubocop: disable Style/FrozenStringLiteralComment
+# rubocop: disable Layout/LineLength
 
 require_relative '../lib/enumerables'
 
@@ -198,4 +196,5 @@ describe '#my_select' do
   end
 end
 
-# rubocop:enable Style/SymbolProc
+# rubocop: enable Style/FrozenStringLiteralComment
+# rubocop: enable Layout/LineLength
