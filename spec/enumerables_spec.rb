@@ -1,4 +1,4 @@
-# frozen_string_literal: False
+# frozen_string_literal: false
 
 # rubocop: disable Layout/LineLength
 
