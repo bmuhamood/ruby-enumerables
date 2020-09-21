@@ -1,4 +1,5 @@
-# frozen_string_literal: true
+# rubocop: disable MetricComplexity
+# rubocop: enable MetricComplexity
 
 require_relative '../lib/enumerables'
 describe '#my_each' do
@@ -203,4 +204,6 @@ public 'my_inject'
 public 'my_inject'
 public 'multiply_els'
 public 'my_select'
-# frozen_string_literal: true
+
+# rubocop: disable MetricComplexity
+# rubocop: enable MetricComplexity
