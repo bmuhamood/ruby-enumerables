@@ -203,6 +203,18 @@ describe '#my_select' do
   end
 end
 
+public 'my_each'
+public 'my_each_with_index'
+public 'my_all?'
+public 'my_any?'
+public 'my_none?'
+public 'my_count'
+public 'my_map'
+public 'my_inject'
+public 'my_inject'
+public 'multiply_els'
+public 'my_select'
+
 # rubocop:enable Metrics/AbcSize
 # rubocop:enable Metrics/MethodLength
 # rubocop:enable Metrics/CyclomaticComplexity
