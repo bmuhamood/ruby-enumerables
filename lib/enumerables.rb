@@ -1,4 +1,3 @@
-# rubocop: disable Style/FrozenStringLiteralComment
 # rubocop:disable Metrics/CyclomaticComplexity
 # rubocop:disable Metrics/PerceivedComplexity
 # rubocop:disable Metrics/AbcSize
