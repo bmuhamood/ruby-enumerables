@@ -1,3 +1,5 @@
+# frozen_string_literal: False
+
 # rubocop: disable Layout/LineLength
 
 require_relative '../lib/enumerables'
