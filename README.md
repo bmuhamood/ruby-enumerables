@@ -2,7 +2,7 @@
 
 # Testing Your Ruby Code - Enumerable
 
-This project was 100% built with Ruby. Created Enumerable class method also worked on how to create methods inside classes.
+This project was 100% built with Ruby. Created Enumerables class methods. Also worked on how to create methods inside classes.
 
 This is the list of the methods that we created:
 
@@ -37,7 +37,7 @@ This methods were tested with Rspec wich is a computer domain-specific language 
 - In the terminal, type `rspec`
 
 ## Rspec output
-![screenshot](./images/01.png)
+![screenshot](./images/1.png)
 
 ## 🛠 Getting Started
 
