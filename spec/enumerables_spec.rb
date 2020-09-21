@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../lib/enumerables'
 describe '#my_each' do
   it 'return enumerator if block is not given' do
@@ -202,4 +203,3 @@ public 'my_inject'
 public 'my_inject'
 public 'multiply_els'
 public 'my_select'
-# frozen_string_literal: false
