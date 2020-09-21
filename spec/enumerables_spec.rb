@@ -193,5 +193,4 @@ describe '#my_select' do
   end
 end
 
-# rubocop: enable Style/FrozenStringLiteralComment
 # rubocop: enable Layout/LineLength
