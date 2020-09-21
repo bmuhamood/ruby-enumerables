@@ -1,4 +1,3 @@
-# rubocop: disable Style/FrozenStringLiteralComment
 # rubocop: disable Layout/LineLength
 
 require_relative '../lib/enumerables'
