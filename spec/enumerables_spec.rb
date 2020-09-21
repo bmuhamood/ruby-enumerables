@@ -3,7 +3,6 @@
 
 require_relative '../lib/enumerables'
 
-# TEST
 
 describe '#my_each' do
   it 'return enumerator if block is not given' do
