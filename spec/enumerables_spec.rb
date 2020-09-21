@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# rubocop: disable Layout/LineLength
 
 require_relative '../lib/enumerables'
 
@@ -204,3 +204,4 @@ public 'my_inject'
 public 'my_inject'
 public 'multiply_els'
 public 'my_select'
+# rubocop: enable Layout/LineLength
