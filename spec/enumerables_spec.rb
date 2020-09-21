@@ -1,9 +1,6 @@
-# ./spec/enumerables_spec.rb
+# frozen_string_literal: true
 
-# rubocop:disable Metrics/CyclomaticComplexity
-# rubocop:disable Metrics/PerceivedComplexity
-# rubocop:disable Metrics/AbcSize
-# rubocop:disable Metrics/MethodLength
+# ./spec/enumerables_spec.rb
 # rubocop:disable Style/SymbolProc
 
 require_relative '../lib/enumerables'
@@ -147,17 +144,15 @@ describe '#my_map' do
     range = (1..4)
     expect(range.my_map { |i| i * i }).to eql([1, 4, 9, 16])
   end
-  it 'return the array aplying the condition in the proc when a proc is given and a block is given' do 
-    my_proc = Proc.new { |i| i * i}
+  it 'return the array aplying the condition in the proc when a proc is given and a block is given' do
+    my_proc = proc { |i| i * i }
     range = (1..4)
     expect(range.my_map(my_proc) { |i| i * i }).to eql([1, 4, 9, 16])
-  
   end
-  it 'return the array aplying the condition in the proc when a proc is given and a block is not given' do 
-    my_proc = Proc.new { |i| i * i}
+  it 'return the array aplying the condition in the proc when a proc is given and a block is not given' do
+    my_proc = proc { |i| i * i }
     range = (1..4)
-    expect(range.my_map(my_proc) ).to eql([1, 4, 9, 16])
-  
+    expect(range.my_map(my_proc)).to eql([1, 4, 9, 16])
   end
   it 'return enumerator when block is not given' do
     range = (1..4)
@@ -203,8 +198,4 @@ describe '#my_select' do
   end
 end
 
-# rubocop:enable Metrics/AbcSize
-# rubocop:enable Metrics/MethodLength
-# rubocop:enable Metrics/CyclomaticComplexity
-# rubocop:enable Metrics/PerceivedComplexity
 # rubocop:enable Style/SymbolProc
