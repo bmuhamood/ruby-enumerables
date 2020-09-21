@@ -1,6 +1,15 @@
-# frozen_string_literal: true
+# ./spec/enumerables_spec.rb
+
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/PerceivedComplexity
+# rubocop:disable Metrics/AbcSize
+# rubocop:disable Metrics/MethodLength
+# rubocop:disable Style/SymbolProc
 
 require_relative '../lib/enumerables'
+
+# TEST
+
 describe '#my_each' do
   it 'return enumerator if block is not given' do
     arr = [1, 2, 3, 4]
@@ -129,7 +138,7 @@ describe '#my_count' do
   end
   it 'return the number of times that a element complete with the condition in the block' do
     arr = [1, 2, 4, 2]
-    expect(arr.my_count(&:even?)).to eql(3)
+    expect(arr.my_count { |x| x.even? }).to eql(3)
   end
 end
 
@@ -138,15 +147,17 @@ describe '#my_map' do
     range = (1..4)
     expect(range.my_map { |i| i * i }).to eql([1, 4, 9, 16])
   end
-  it 'return the array aplying the condition in the proc when a proc is given and a block is given' do
-    my_proc = proc { |i| i * i }
+  it 'return the array aplying the condition in the proc when a proc is given and a block is given' do 
+    my_proc = Proc.new { |i| i * i}
     range = (1..4)
     expect(range.my_map(my_proc) { |i| i * i }).to eql([1, 4, 9, 16])
+  
   end
-  it 'return the array aplying the condition in the proc when a proc is given and a block is not given' do
-    my_proc = proc { |i| i * i }
+  it 'return the array aplying the condition in the proc when a proc is given and a block is not given' do 
+    my_proc = Proc.new { |i| i * i}
     range = (1..4)
-    expect(range.my_map(my_proc)).to eql([1, 4, 9, 16])
+    expect(range.my_map(my_proc) ).to eql([1, 4, 9, 16])
+  
   end
   it 'return enumerator when block is not given' do
     range = (1..4)
@@ -184,7 +195,7 @@ end
 describe '#my_select' do
   it 'return an array with the elments that complete with condition in the block' do
     arr = [1, 2, 3, 4, 5]
-    expect(arr.my_select(&:even?)).to eql([2, 4])
+    expect(arr.my_select { |num| num.even? }).to eql([2, 4])
   end
   it 'return enumerator if block is not given' do
     arr = [1, 2, 3, 4, 5]
@@ -192,14 +203,8 @@ describe '#my_select' do
   end
 end
 
-public 'my_each'
-public 'my_each_with_index'
-public 'my_all?'
-public 'my_any?'
-public 'my_none?'
-public 'my_count'
-public 'my_map'
-public 'my_inject'
-public 'my_inject'
-public 'multiply_els'
-public 'my_select'
+# rubocop:enable Metrics/AbcSize
+# rubocop:enable Metrics/MethodLength
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/PerceivedComplexity
+# rubocop:enable Style/SymbolProc
