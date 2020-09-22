@@ -1,5 +1,3 @@
-# rubocop: disable Metrics/BlockLength
-
 require_relative '../lib/enumerables'
 
 describe '#my_each' do
@@ -218,5 +216,3 @@ describe '#my_select' do
     expect(arr.my_select.class).to eql(Enumerator)
   end
 end
-
-# rubocop: enable Metrics/BlockLength
