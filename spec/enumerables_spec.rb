@@ -1,5 +1,3 @@
-# rubocop: disable Layout/LineLength
-
 require_relative '../lib/enumerables'
 
 describe '#my_each' do
@@ -160,7 +158,7 @@ describe '#my_inject' do
     range = (5..10)
     expect(range.my_inject { |sum, n| sum + n }).to eql(45)
   end
-  it 'combine every elment in the array aplying the binary operation that is the symbol that is the second argument given and start in the first argument given ' do
+  it 'computes all the items in enumerable according to an initial memo value and an operator and returns the result' do
     range = (5..10)
     expect(range.my_inject(1, :*)).to eql(151_200)
   end
@@ -192,5 +190,3 @@ describe '#my_select' do
     expect(arr.my_select.class).to eql(Enumerator)
   end
 end
-
-# rubocop: enable Layout/LineLength
