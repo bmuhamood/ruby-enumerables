@@ -219,5 +219,3 @@ describe Enumerable do
     end
   end
 end
-
-# frozen_string_literal:false
