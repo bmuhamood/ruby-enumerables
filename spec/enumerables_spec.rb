@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/BlockLength
 require_relative '../lib/enumerables'
 
 describe Enumerable do
   let(:arr) { [1, 2, 3, 4] }
 
   describe '#my_each' do
-    it 'return enumerator if block is not given' do
+    it 'return enumerator if block not given' do
       expect(arr.my_each.class).to eql(Enumerator)
     end
 
@@ -220,5 +219,3 @@ describe Enumerable do
     end
   end
 end
-
-# rubocop:enable Metrics/BlockLength
