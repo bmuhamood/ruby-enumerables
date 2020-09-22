@@ -102,7 +102,9 @@ describe '#my_none?' do
     arr = %w[ant bear cat]
     expect(arr.my_none? { |word| word.length >= 4 }).to eql(false)
   end
+end
 
+describe '#my_none?' do
   it 'return true if one in the array match with the regex' do
     arr = %w[ant bear cat]
     expect(arr.my_none?(/d/)).to eql(true)
