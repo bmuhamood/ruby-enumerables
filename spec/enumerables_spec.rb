@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative '../lib/enumerables'
 
 describe '#my_each' do
@@ -156,7 +154,7 @@ describe '#my_map' do
 end
 
 describe '#my_inject' do
-  it 'combine every elment in the array aplying the binary operation that is in the block' do
+  it 'computes all the items in enumerable according to a given block and returns the result' do
     range = (5..10)
     expect(range.my_inject { |sum, n| sum + n }).to eql(45)
   end
