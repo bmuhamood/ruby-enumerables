@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../lib/enumerables'
+
 describe Enumerable do
   let(:arr) { [1, 2, 3, 4] }
 
@@ -219,4 +220,4 @@ describe Enumerable do
   end
 end
 
-# frozen_string_literal: true
+# frozen_string_literal:false
