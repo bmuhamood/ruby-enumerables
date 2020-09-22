@@ -1,4 +1,3 @@
-# frozen_string_literal: false
 # rubocop: disable Style/FrozenStringLiteralComment
 
 require_relative '../lib/enumerables'
@@ -219,5 +218,4 @@ describe '#my_select' do
     expect(arr.my_select.class).to eql(Enumerator)
   end
 end
-
 # rubocop: enable Style/FrozenStringLiteralComment
