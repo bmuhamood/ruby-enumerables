@@ -142,6 +142,7 @@ module Enumerable
   end
 
   def my_inject(*arg)
+
     original_val = to_a
     if !block_given? && arg.length == 1 && original_val != [] && arg[0].is_a?(Symbol)
       num = original_val[0]
