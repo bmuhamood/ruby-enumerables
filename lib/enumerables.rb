@@ -1,6 +1,5 @@
 # rubocop:disable Metrics/CyclomaticComplexity
 # rubocop:disable Metrics/PerceivedComplexity
-# rubocop:disable Metrics/AbcSize
 # rubocop:disable Metrics/ModuleLength
 
 module Enumerable
@@ -142,7 +141,6 @@ module Enumerable
   end
 
   def my_inject(*arg)
-
     original_val = to_a
     if !block_given? && arg.length == 1 && original_val != [] && arg[0].is_a?(Symbol)
       num = original_val[0]
@@ -184,7 +182,6 @@ def multiply_els(array)
   array.my_inject { |my_item, x| my_item * x }
 end
 
-# rubocop:enable Metrics/AbcSize
 # rubocop:enable Metrics/ModuleLength
 # rubocop:enable Metrics/CyclomaticComplexity
 # rubocop:enable Metrics/PerceivedComplexity
