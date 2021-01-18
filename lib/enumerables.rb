@@ -1,7 +1,7 @@
 # rubocop:disable Metrics/CyclomaticComplexity
 # rubocop:disable Metrics/PerceivedComplexity
 # rubocop:disable Metrics/AbcSize
-# rubocop:disable Metrics/MethodLength
+# rubocop:disable Metrics/ModuleLength
 
 module Enumerable
   def my_each
@@ -184,6 +184,6 @@ def multiply_els(array)
 end
 
 # rubocop:enable Metrics/AbcSize
-# rubocop:enable Metrics/MethodLength
+# rubocop:enable Metrics/ModuleLength
 # rubocop:enable Metrics/CyclomaticComplexity
 # rubocop:enable Metrics/PerceivedComplexity
