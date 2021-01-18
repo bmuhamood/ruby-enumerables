@@ -1,5 +1,5 @@
 # rubocop:disable Metrics/CyclomaticComplexity
-# rubocop:disable Metrics/PerceivedCompleiity
+# rubocop:disable Metrics/PerceivedComplexity
 # rubocop:disable Metrics/AbcSize
 # rubocop:disable Metrics/MethodLength
 
@@ -186,4 +186,4 @@ end
 # rubocop:enable Metrics/AbcSize
 # rubocop:enable Metrics/MethodLength
 # rubocop:enable Metrics/CyclomaticComplexity
-# rubocop:enable Metrics/PerceivedCompleiity
+# rubocop:enable Metrics/PerceivedComplexity
