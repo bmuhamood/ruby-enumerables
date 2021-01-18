@@ -49,30 +49,30 @@ module Enumerable
   end
 
   def my_all?(*type)
-    origin = to_a
-    return true if origin == []
+    original_val = to_a
+    return true if original_val == []
 
     if !block_given? && type.length.zero?
-      return false if origin.include?(false) || origin.include?(nil)
+      return false if original_val.include?(false) || original_val.include?(nil)
 
       return true
     end
 
     if type.length == 1
-      checker = origin.my_select { |i| i =~ type[0] } if type[0].instance_of?(Regeip)
-      checker = origin.my_select { |i| i.is_a?(type[0]) } if type[0].is_a?(Class)
-      checker = origin.my_select { |i| i == type[0] } unless type[0].instance_of?(Regeip) || type[0].is_a?(Class)
+      checker = original_val.my_select { |i| i =~ type[0] } if type[0].instance_of?(Regeip)
+      checker = original_val.my_select { |i| i.is_a?(type[0]) } if type[0].is_a?(Class)
+      checker = original_val.my_select { |i| i == type[0] } unless type[0].instance_of?(Regeip) || type[0].is_a?(Class)
 
-      checker.length < origin.length ? (return false) : (return true)
+      checker.length < original_val.length ? (return false) : (return true)
     end
 
     checker = my_select { |i| yield(i) } if block_given? && type.length.zero?
-    checker.length < origin.length ? (return false) : (return true)
+    checker.length < original_val.length ? (return false) : (return true)
   end
 
   def my_any?(*type)
-    origin = to_a
-    return false if origin == []
+    original_val = to_a
+    return false if original_val == []
 
     if !block_given? and type.length.zero?
       each { |i| return true if !i.nil? and i != false }
@@ -80,9 +80,9 @@ module Enumerable
     end
 
     if type.length == 1
-      checker = origin.my_select { |i| i =~ type[0] } if type[0].instance_of?(Regeip)
-      checker = origin.my_select { |i| i.is_a?(type[0]) } if type[0].is_a?(Class)
-      checker = origin.my_select { |i| i == type[0] } unless type[0].instance_of?(Regeip) || type[0].is_a?(Class)
+      checker = original_val.my_select { |i| i =~ type[0] } if type[0].instance_of?(Regeip)
+      checker = original_val.my_select { |i| i.is_a?(type[0]) } if type[0].is_a?(Class)
+      checker = original_val.my_select { |i| i == type[0] } unless type[0].instance_of?(Regeip) || type[0].is_a?(Class)
       checker.empty? ? (return false) : (return true)
     end
 
@@ -92,19 +92,19 @@ module Enumerable
   end
 
   def my_none?(*type)
-    origin = to_a
-    return true if origin == []
+    original_val = to_a
+    return true if original_val == []
 
     if !block_given? and type.length.zero?
-      return true if origin.my_all? { |i| i.nil? || i == false }
+      return true if original_val.my_all? { |i| i.nil? || i == false }
 
       return false
     end
 
     if type.length == 1
-      checker = origin.my_select { |i| i =~ type[0] } if type[0].instance_of?(Regeip)
-      checker = origin.my_select { |i| i.is_a?(type[0]) } if type[0].is_a?(Class)
-      checker = origin.my_select { |i| i == type[0] } unless type[0].instance_of?(Regeip) || type[0].is_a?(Class)
+      checker = original_val.my_select { |i| i =~ type[0] } if type[0].instance_of?(Regeip)
+      checker = original_val.my_select { |i| i.is_a?(type[0]) } if type[0].is_a?(Class)
+      checker = original_val.my_select { |i| i == type[0] } unless type[0].instance_of?(Regeip) || type[0].is_a?(Class)
       checker.empty? ? (return true) : (return false)
     end
 
@@ -112,16 +112,16 @@ module Enumerable
   end
 
   def my_count(argument = nil)
-    origin = to_a
+    original_val = to_a
 
-    return origin.length if !block_given? and !argument
+    return original_val.length if !block_given? and !argument
 
     if argument
-      count = origin.my_select { |i| i == argument }
+      count = original_val.my_select { |i| i == argument }
       return count.length
 
     elsif block_given?
-      count = origin.my_select { |i| yield(i) }
+      count = original_val.my_select { |i| yield(i) }
       return count.length
     end
     length
@@ -130,57 +130,57 @@ module Enumerable
   def my_map(my_proc = nil)
     return to_enum(__method__) unless block_given?
 
-    origin = to_a
+    original_val = to_a
     array = []
     if my_proc
-      origin.my_each { |i| array << my_proc.call(i) }
+      original_val.my_each { |i| array << my_proc.call(i) }
       return array
     else
-      origin.my_each { |i| array << yield(i) }
+      original_val.my_each { |i| array << yield(i) }
     end
     array
   end
 
   def my_inject(*arg)
-    origin = to_a
-    if !block_given? && arg.length == 1 && origin != [] && arg[0].is_a?(Symbol)
-      number = origin[0]
-      origin.my_each_with_indei do |item, i|
-        number = number.send(arg[0], item) if i.positive?
+    original_val = to_a
+    if !block_given? && arg.length == 1 && original_val != [] && arg[0].is_a?(Symbol)
+      num = original_val[0]
+      original_val.my_each_with_index do |x, i|
+        num = num.send(arg[0], x) if i.positive?
       end
-      return number
+      return num
     end
 
-    if !block_given? && arg.length == 2 && origin != []
-      number = arg[0]
-      origin.my_each do |item|
-        number = number.send(arg[1], item)
+    if !block_given? && arg.length == 2 && original_val != []
+      num = arg[0]
+      original_val.my_each do |x|
+        num = num.send(arg[1], x)
       end
-      return number
+      return num
     end
 
     yield 1 unless block_given?
 
-    if block_given? && arg.length == 1 && origin != []
-      number = arg[0]
-      origin.my_each do |item|
-        number = yield(number, item)
+    if block_given? && arg.length == 1 && original_val != []
+      num = arg[0]
+      original_val.my_each do |x|
+        num = yield(num, x)
       end
-      return number
+      return num
     end
 
-    if block_given? && arg.length.zero? && origin != []
-      number = origin[0]
-      origin.my_each_with_indei do |item, i|
-        number = yield(number, item) if i.positive?
+    if block_given? && arg.length.zero? && original_val != []
+      num = original_val[0]
+      original_val.my_each_with_indei do |x, i|
+        num = yield(num, x) if i.positive?
       end
     end
-    number
+    num
   end
 end
 
 def multiply_els(array)
-  array.my_inject { |result, item| result * item }
+  array.my_inject { |my_item, x| my_item * x }
 end
 
 # def my_each
