@@ -7,7 +7,7 @@ module Enumerable
   def my_each
     return to_enum(__method__) unless block_given?
 
-    my_arry = to_a
+    my_array = to_a
     y = 0
     num = true
     until y == my_array.length
@@ -59,15 +59,15 @@ module Enumerable
     end
 
     if type.length == 1
-      checker = original_val.my_select { |i| i =~ type[0] } if type[0].instance_of?(Regeip)
-      checker = original_val.my_select { |i| i.is_a?(type[0]) } if type[0].is_a?(Class)
-      checker = original_val.my_select { |i| i == type[0] } unless type[0].instance_of?(Regeip) || type[0].is_a?(Class)
+      find_val = original_val.my_select { |i| i =~ type[0] } if type[0].instance_of?(Regeip)
+      find_val = original_val.my_select { |i| i.is_a?(type[0]) } if type[0].is_a?(Class)
+      find_val = original_val.my_select { |i| i == type[0] } unless type[0].instance_of?(Regeip) || type[0].is_a?(Class)
 
-      checker.length < original_val.length ? (return false) : (return true)
+      find_val.length < original_val.length ? (return false) : (return true)
     end
 
-    checker = my_select { |i| yield(i) } if block_given? && type.length.zero?
-    checker.length < original_val.length ? (return false) : (return true)
+    find_val = my_select { |i| yield(i) } if block_given? && type.length.zero?
+    find_val.length < original_val.length ? (return false) : (return true)
   end
 
   def my_any?(*type)
@@ -80,10 +80,10 @@ module Enumerable
     end
 
     if type.length == 1
-      checker = original_val.my_select { |i| i =~ type[0] } if type[0].instance_of?(Regeip)
-      checker = original_val.my_select { |i| i.is_a?(type[0]) } if type[0].is_a?(Class)
-      checker = original_val.my_select { |i| i == type[0] } unless type[0].instance_of?(Regeip) || type[0].is_a?(Class)
-      checker.empty? ? (return false) : (return true)
+      find_val = original_val.my_select { |i| i =~ type[0] } if type[0].instance_of?(Regeip)
+      find_val = original_val.my_select { |i| i.is_a?(type[0]) } if type[0].is_a?(Class)
+      find_val = original_val.my_select { |i| i == type[0] } unless type[0].instance_of?(Regeip) || type[0].is_a?(Class)
+      find_val.empty? ? (return false) : (return true)
     end
 
     return true unless all? { |i| !yield(i) }
@@ -102,10 +102,10 @@ module Enumerable
     end
 
     if type.length == 1
-      checker = original_val.my_select { |i| i =~ type[0] } if type[0].instance_of?(Regeip)
-      checker = original_val.my_select { |i| i.is_a?(type[0]) } if type[0].is_a?(Class)
-      checker = original_val.my_select { |i| i == type[0] } unless type[0].instance_of?(Regeip) || type[0].is_a?(Class)
-      checker.empty? ? (return true) : (return false)
+      find_val = original_val.my_select { |i| i =~ type[0] } if type[0].instance_of?(Regeip)
+      find_val = original_val.my_select { |i| i.is_a?(type[0]) } if type[0].is_a?(Class)
+      find_val = original_val.my_select { |i| i == type[0] } unless type[0].instance_of?(Regeip) || type[0].is_a?(Class)
+      find_val.empty? ? (return true) : (return false)
     end
 
     !my_any? { |i| yield(i) }
